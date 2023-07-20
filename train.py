@@ -51,6 +51,8 @@ spec = object_detector.EfficientDetSpec(
 # Train the model
 model = object_detector.create(train_data, model_spec=spec, batch_size=4, train_whole_model=True, epochs=10, validation_data=val_data)
 
+print('Model training complete')
+
 # # Evaluate the model
 # eval_result = model.evaluate(val_data)
 
@@ -65,7 +67,7 @@ model = object_detector.create(train_data, model_spec=spec, batch_size=4, train_
 # Export the model
 # model.export(export_dir='.', tflite_filename='seal_det.tflite')
 
-TFLITE_FILENAME = 'seal_det.tflite'
+TFLITE_FILENAME = 'model.tflite'
 LABELS_FILENAME = 'labelmap.txt'
 
 model.export(export_dir='.', tflite_filename=TFLITE_FILENAME, label_filename=LABELS_FILENAME,
